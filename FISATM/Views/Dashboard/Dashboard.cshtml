@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 whitetext">
+            <div class="row">
+                <p style="color:#01B4F5">Welcome</p>
+                <h4>@Html.Label("Mr Robert Baltimore", null, new { @class = "whitetext" }) </h4>
+            </div>
+            <div class="row">
+                <p style="color:#01B4F5">Available funds</p>
+                <h4>@Html.Label("$10,000", null, new { @class = "whitetext" }) </h4>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table" style="width:0;">
+                <tbody>
+                    <tr>
+                        <td><input class="btn btn-group-lg btnDash" type="button" value="Get Cash" name="btnCash" /></td>
+                        <td class="setright"><input class="btn btn-group-lg btnDash" type="button" value="Deposit" name="btnDeposit" /></td>
+
+                    </tr>
+                    <tr>
+                        <td><input class="btn btn-group-lg btnDash" type="button" value="Balance Enquiry" name="btnEnquiry" /></td>
+                        <td class="setright"><input class="btn btn-group-lg btnDash" type="button" value="Logout" name="btnLogout" /></td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

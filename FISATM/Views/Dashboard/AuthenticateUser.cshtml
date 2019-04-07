@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "AuthenticateUser";
+}
+
+<p class="whitetext">Press the authenticate button</p>
+
+<div class="container">
+
+    <div class="row" style="align-content:center">
+        <div id="my_camera"></div>
+        <!-- A button for taking snaps -->
+        <form>
+            <input type="button" class="btn btn-success" value="Authenticate" onClick="take_snapshot()">
+        </form>
+
+    </div>
+
+    <div class="row">
+        <div id="results">Your captured image will appear here...</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="ResponseTable">
+        </div>
+    </div>
+</div>  
+
+<script src="~/Scripts/AtmScript.js"></script>
+

@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model FISATM.Models.AtmCardModel
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div>
+        <div class="row">
+            <p class="lead whitetext">Swipe your ATM card</p>
+            @Html.TextBoxFor(m => m.CardNumber, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CardNumber, "", new { @class = "text-danger" })
+        </div>
+        <div class="row">
+            <input class="btn btn-primary" style="background-color:#01B4F5;" type="submit" name="btnSwipe" value="Swipe" />
+        </div>
+    </div>
+}
