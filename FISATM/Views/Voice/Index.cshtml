@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <div class="row">
+        <p class="lead whitetext">Read the below phrase for enrollment:</p>
+        <p class="lead whitetext">i am going to make him an offer he cannot refuse</p>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary" style="background-color:#01B4F5;" onclick="enrollNewVerificationProfile();">Create Verification Profile</button>
+        <button class="btn btn-primary" style="background-color:#01B4F5;" onclick="startListeningForVerification();">Verify</button>
+    </div>
+</div>
+<div class="row">
+    <pre id="log"></pre>
+</div>
+<script src="~/Scripts/speaker-recognition-api-demo-core.js"></script>
+<script src="~/Scripts/recorder.js"></script>
+<script>
+
+    var recorder;
+    var audio_context;
+
+    function onMediaSuccess(stream, callback, secondsOfAudio) {
+        audio_context = audio_context || new window.AudioContext;
+        var input = audio_context.createMediaStreamSource(stream);
+        recorder = new Recorder(input);
+        recorder.record();
+
+        setTimeout(() => { StopListening(callback); }, secondsOfAudio * 1000);
+    }
+
+    function onMediaError(e) {
+        console.error('media error', e);
+    }
+
+    function StopListening(callback) {
+        console.log('...working...');
+        recorder && recorder.stop();
+        recorder.exportWAV(function (blob) {
+            callback(blob);
+        });
+        recorder.clear();
+    }
+
+</script>
